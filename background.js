@@ -127,6 +127,8 @@ async function handleMessage(message, sender) {
       return setTabSnooze(message.tabId, true);
     case "UNSNOOZE_TAB":
       return setTabSnooze(message.tabId, false);
+    case "RUN_MANUAL_ANTI_PAUSE":
+      return runManualAntiPause(message.tabId);
     case "TEST_SOUND":
       await playAlertSound();
       return { ok: true };
@@ -458,6 +460,45 @@ async function setTabSnooze(tabId, snoozed) {
 
   await persistState();
   return { ok: true };
+}
+
+async function runManualAntiPause(tabId) {
+  if (typeof tabId !== "number") {
+    return { ok: false, error: "Missing tab id" };
+  }
+
+  let tab;
+  try {
+    tab = await chrome.tabs.get(tabId);
+  } catch (error) {
+    return { ok: false, error: "Tab not found" };
+  }
+
+  if (!tab.url || !tab.url.startsWith("https://www.uooc.net.cn/")) {
+    return { ok: false, error: "Current tab is not a UOOC page" };
+  }
+
+  const [result] = await chrome.scripting.executeScript({
+    target: { tabId },
+    world: "MAIN",
+    func: () => {
+      const jq = window.jQuery || window.$;
+      if (typeof jq !== "function") {
+        return {
+          ok: false,
+          error: "Current page does not expose jQuery/$"
+        };
+      }
+
+      jq("html").off("mouseleave blur visibilitychange");
+
+      return {
+        ok: true
+      };
+    }
+  });
+
+  return result?.result || { ok: false, error: "Manual anti-pause injection returned no result" };
 }
 
 function resetRuntimeState(tabId, { keepSnooze }) {

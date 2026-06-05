@@ -11,6 +11,8 @@ const statusLabels = {
 };
 
 const globalToggle = document.getElementById("globalToggle");
+const manualAntiPauseButton = document.getElementById("manualAntiPauseButton");
+const manualAntiPauseStatus = document.getElementById("manualAntiPauseStatus");
 const testSoundButton = document.getElementById("testSoundButton");
 const tabList = document.getElementById("tabList");
 const tabCount = document.getElementById("tabCount");
@@ -32,6 +34,7 @@ async function initialize() {
 
   activeTabId = activeTab?.id ?? null;
   globalToggle.addEventListener("change", handleGlobalToggleChange);
+  manualAntiPauseButton.addEventListener("click", handleManualAntiPauseClick);
   testSoundButton.addEventListener("click", handleTestSoundClick);
 
   await refreshState();
@@ -68,6 +71,24 @@ async function handleGlobalToggleChange(event) {
     enabled: event.target.checked
   });
   await refreshState();
+}
+
+async function handleManualAntiPauseClick() {
+  manualAntiPauseStatus.textContent = "";
+
+  if (!Number.isFinite(activeTabId)) {
+    manualAntiPauseStatus.textContent = "当前没有可执行的活动标签页。";
+    return;
+  }
+
+  const response = await chrome.runtime.sendMessage({
+    type: "RUN_MANUAL_ANTI_PAUSE",
+    tabId: activeTabId
+  });
+
+  manualAntiPauseStatus.textContent = response?.ok
+    ? "已对当前页面执行一次书签同款逻辑。"
+    : `执行失败：${response?.error || "未知错误"}`;
 }
 
 async function handleTestSoundClick() {

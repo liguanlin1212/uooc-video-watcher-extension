@@ -5,6 +5,7 @@
   "description": "Monitor UOOC course videos and alert on pause, end, or blocking states without interacting with the platform.",
   "permissions": [
     "tabs",
+    "scripting",
     "storage",
     "notifications",
     "offscreen"
