@@ -20,7 +20,10 @@
 - 本工具不涉及对官方网站的入侵！！！；
 
 ## 下载及安装方式（此处以edge举例）
-1. 将仓库内所有文件下载到本地文件夹；
+1. 将仓库内所有文件下载到本地文件夹（最简单的方法下载zip总是会的吧）：
+
+<img width="1098" height="525" alt="image" src="https://github.com/user-attachments/assets/ae64530c-1f9a-489b-89ef-1a8a05d87605" />
+
 2. 打开edge-“拓展”-“管理拓展”-“开发人员选项”-“加载解压缩的拓展”，选择你下载到的文件夹，然后在下方就可以看到拓展“UOOC Video Watcher”：
 
 <img width="601" height="675" alt="image" src="https://github.com/user-attachments/assets/b6df3e9c-854c-40d5-a68b-9e9e4ca7b7e1" />
