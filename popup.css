@@ -1,0 +1,183 @@
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", "Microsoft YaHei UI", sans-serif;
+  background: #f6f2e8;
+  color: #1f1f1f;
+}
+
+body {
+  margin: 0;
+  min-width: 360px;
+  background:
+    radial-gradient(circle at top left, rgba(206, 149, 55, 0.18), transparent 35%),
+    linear-gradient(180deg, #fffdf8 0%, #f6f2e8 100%);
+}
+
+.app {
+  padding: 16px;
+}
+
+.header,
+.tab-main,
+.tab-actions,
+.section-title,
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.header {
+  margin-bottom: 12px;
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8a5a13;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 20px;
+}
+
+h2 {
+  font-size: 14px;
+}
+
+.actions,
+.tab-card {
+  border: 1px solid rgba(125, 88, 27, 0.16);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 8px 24px rgba(78, 55, 14, 0.08);
+}
+
+.actions {
+  padding: 12px;
+  margin-bottom: 14px;
+}
+
+.settings-row,
+.actions-row,
+.settings-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.settings-row {
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.settings-label,
+.settings-unit {
+  font-size: 12px;
+  color: #5d4314;
+}
+
+.settings-input {
+  width: 72px;
+  padding: 8px 10px;
+  border: 1px solid rgba(125, 88, 27, 0.18);
+  border-radius: 999px;
+  background: #fff;
+  color: #1f1f1f;
+  font-size: 12px;
+}
+
+.settings-input:focus {
+  outline: 2px solid rgba(201, 131, 31, 0.24);
+  outline-offset: 1px;
+}
+
+.hint {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #64553b;
+}
+
+.section-title {
+  margin-bottom: 10px;
+}
+
+.tab-list {
+  display: grid;
+  gap: 10px;
+}
+
+.tab-card {
+  padding: 12px;
+}
+
+.tab-title {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.tab-status,
+.tab-alert-time,
+.toggle,
+button {
+  font-size: 12px;
+}
+
+.tab-status {
+  color: #64553b;
+  margin-top: 4px;
+}
+
+.tab-alert-time {
+  color: #7d6d55;
+}
+
+button {
+  border: none;
+  border-radius: 999px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.secondary {
+  background: #f1e5cb;
+  color: #5d4314;
+  box-shadow: inset 0 0 0 1px rgba(125, 88, 27, 0.18);
+}
+
+.toggle input {
+  width: 18px;
+  height: 18px;
+}
+
+.toggle.small span {
+  color: #64553b;
+}
+
+.empty-state {
+  padding: 24px 12px;
+  text-align: center;
+  border: 1px dashed rgba(125, 88, 27, 0.28);
+  border-radius: 14px;
+  color: #7d6d55;
+  background: rgba(255, 255, 255, 0.6);
+}

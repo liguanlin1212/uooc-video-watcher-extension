@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UOOC Video Watcher</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <div>
+          <p class="eyebrow">UOOC Video Watcher</p>
+          <h1>视频状态提醒</h1>
+        </div>
+        <label class="toggle">
+          <span>全局监控</span>
+          <input id="globalToggle" type="checkbox">
+        </label>
+      </header>
+
+      <section class="actions">
+        <button id="testSoundButton" class="secondary" type="button">测试提示音</button>
+        <p class="hint">扩展只做状态监控和提醒；当暂停超过 10 秒、播放结束或疑似被弹题卡住时提醒一次。</p>
+      </section>
+
+      <section class="tabs-section">
+        <div class="section-title">
+          <h2>监控中的页面</h2>
+          <span id="tabCount">0</span>
+        </div>
+        <div id="tabList" class="tab-list"></div>
+      </section>
+    </main>
+
+    <template id="tabTemplate">
+      <article class="tab-card">
+        <div class="tab-main">
+          <div class="tab-meta">
+            <h3 class="tab-title"></h3>
+            <p class="tab-status"></p>
+          </div>
+          <label class="toggle small">
+            <span>启用</span>
+            <input class="monitor-toggle" type="checkbox">
+          </label>
+        </div>
+        <div class="tab-actions">
+          <button class="snooze-button secondary" type="button"></button>
+          <p class="tab-alert-time"></p>
+        </div>
+      </article>
+    </template>
+
+    <script src="popup.js" type="module"></script>
+  </body>
+</html>

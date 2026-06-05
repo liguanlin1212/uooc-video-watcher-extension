@@ -1,0 +1,67 @@
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", "Microsoft YaHei UI", sans-serif;
+  color: #1f1f1f;
+  background:
+    radial-gradient(circle at top left, rgba(206, 149, 55, 0.16), transparent 35%),
+    linear-gradient(180deg, #fffdf8 0%, #f4efe4 100%);
+}
+
+body {
+  margin: 0;
+}
+
+.app {
+  padding: 20px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8a5a13;
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.message {
+  margin-top: 14px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.progress {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #64553b;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+button {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  background: #c9831f;
+  color: #fff8e8;
+}
+
+button.secondary {
+  background: #f1e5cb;
+  color: #5d4314;
+}

@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "UOOC Video Watcher",
+  "version": "0.2.0",
+  "description": "Monitor UOOC course videos and alert on pause, end, or blocking states without interacting with the platform.",
+  "permissions": [
+    "tabs",
+    "storage",
+    "notifications",
+    "offscreen"
+  ],
+  "host_permissions": [
+    "https://www.uooc.net.cn/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "UOOC Video Watcher",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "128": "icon-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.uooc.net.cn/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "alert.html",
+        "alert.css",
+        "alert.js",
+        "icon-128.png",
+        "offscreen.html",
+        "offscreen.js"
+      ],
+      "matches": [
+        "https://www.uooc.net.cn/*"
+      ]
+    }
+  ]
+}
